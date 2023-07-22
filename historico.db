@@ -1,0 +1,1 @@
+CREATE TABLE consultas (id INTEGER PRIMARY KEY, catetoOposto REAL, catetoAdjacente REAL, hipotenusa REAL, timestamp TEXT)
