@@ -1,110 +1,108 @@
-/* Definições de estilo para o corpo da página */
 body {
-    font-family: Bradley Hand, cursive;    /* Definindo a fonte utilizada para o texto como "Bradley Hand" ou uma fonte do tipo cursive. */
-    background: linear-gradient(180deg, #f4f4f4, #24faec);    /* Criando um gradiente de fundo com duas cores (#f4f4f4 e #24faec) dispostas verticalmente (180 graus). */
-    margin: 0;    /* Removendo as margens padrão do corpo da página. */
-    padding: 0; /* Removendo os preenchimentos padrão do corpo da página. */
-    min-height: 102vh;  /* Definindo a altura mínima do corpo da página como 102% da altura da janela do navegador, garantindo que ele ocupe toda a janela. */
+    font-family: Bradley Hand, cursive;
+    background: linear-gradient(45deg, #071952,#0B666A, #35A29F, #97FEED);
+    background-size: 300% 300%;
+    animation: colors 15s ease infinite;
+    margin: 0;
+    padding: 0;
+    min-height: 102vh;
 }
-
-/* Definições de estilo para a div com a classe "nome" */
+@keyframes colors {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
 .nome {
-    max-width: 800px;  /* Definindo a largura máxima para a div com classe "nome" como 800 pixels. */
-    margin: -10px auto;   /* Definindo margem negativa no topo e na parte inferior da div para centralizá-la horizontalmente. */
-    padding: 120px;   /* Adicionando um preenchimento interno de 120 pixels à div. */
-    background-color: rgb(255, 255, 255);   /* Definindo a cor de fundo da div como branco. */
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);  /* Adicionando uma sombra na div para criar um efeito de elevação. */
-    text-align: center;   /* Centralizando o texto dentro da div. */
-    font-size: 20px;   /* Definindo o tamanho da fonte do texto dentro da div como 20 pixels. */
+    max-width: 950px;
+    margin: 0px auto;
+    padding: 125px;
+    background-color: rgb(255, 255, 255);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    font-size: 20px;
 }
 
-/* Definições de estilo para a div com a classe "form" */
 .form {
-    margin-top: 20px;  /* Adicionando espaço acima da div com classe "form". */
-    margin-bottom: 20px;  /* Adicionando espaço abaixo da div com classe "form", criando um espaço entre a caixa de entrada e o botão. */
+    margin-top: 20px;
+    margin-bottom: 20px;
 }
 
-/* Definições de estilo para os rótulos */
 label {
-    display: block;   /* Definindo os rótulos como elementos de bloco para que cada um ocupe uma linha inteira. */
-    margin-bottom: 0;  /* Removendo o espaço entre os rótulos. */
+    display: block;
+    margin-bottom: 0;
 }
 
-/* Definições de estilo para as caixas de entrada */
 input {
-    width: 100%;  /* Definindo a largura das caixas de entrada como 100% da largura do contêiner pai. */
-    padding: 8px;   /* Adicionando um preenchimento interno de 8 pixels às caixas de entrada. */
-    margin-bottom: 0;  /* Removendo o espaço entre as caixas de entrada. */
-    border: 1px solid #32cfcf;  /* Adicionando uma borda de 1 pixel com a cor #32cfcf às caixas de entrada. */
-    border-radius: 4px;  /* Adicionando bordas arredondadas às caixas de entrada. */
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 0;
+    border: 1px solid #071952; 
+    border-radius: 4px;
 }
 
-/* Definições de estilo para os botões */
-button {
-    width: 100%;   /* Definindo a largura dos botões como 100% da largura do contêiner pai. */
-    max-width: 200px;   /* Definindo a largura máxima dos botões como 200 pixels. */
-    padding: 12px;  /* Adicionando um preenchimento interno de 12 pixels aos botões. */
-    background-color: #32cfcf;
-    /* Definindo a cor de fundo dos botões como #32cfcf. */
-    color: #fff;  /* Definindo a cor do texto dos botões como branco. */
-    border: none;  /* Removendo a borda dos botões. */
-    border-radius: 4px; /* Adicionando bordas arredondadas aos botões. */
-    cursor: pointer; /* Definindo o cursor do mouse como um ponteiro ao passar por cima dos botões. */
-    margin-top: 20px; /* Adicionando espaço acima dos botões. */
-}
-
-/* Definições de estilo para o primeiro botão (índice 0) */
+/* Estilos para os botões */
+/* Estilos para o primeiro botão (índice 0) */
 button:first-child {
-    margin-bottom: 20px;  /* Adicionando espaço extra na parte inferior do primeiro botão. */
+    margin-bottom: 20px;
 }
 
-/* Definições de estilo para a div com a classe "resultado" */
-.resultado {
-    margin-top: 30px;  /* Adicionando espaço acima da div com classe "resultado". */
+/* Estilos para o botão .btn-15 */
+.btn-15 {
+    width: 100%;
+    max-width: 200px;
+    padding: 12px;
+    background-color: #97FEED;
+    border: none;
+    z-index: 1;
+    position: relative;
+    overflow: hidden;
+    color: #fff;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-top: 20px;
 }
 
-/* Definições de estilo para os títulos secundários (h2) */
-h2 {
-    margin-bottom: 0;   /* Removendo o espaço abaixo dos títulos secundários. */
+.btn-15:after {
+    content: "";
+    width: 0;
+    height: 100%;
+    top: 0;
+    right: 0;
+    z-index: -1;
+    background-color: #97FEED;
+    border-radius: 5px;
+    box-shadow: inset 2px 2px 2px 0px rgba(255, 255, 255, 0.5),
+                7px 7px 20px 0px rgba(0, 0, 0, 0.1),
+                4px 4px 5px 0px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+    position: absolute;
 }
 
-/* Definições de estilo para o parágrafo com o id "hipotenusaResultado" */
-#hipotenusaResultado {
-    font-size: 18px;   /* Definindo o tamanho da fonte do parágrafo como 18 pixels. */
-    font-weight: bold; /* Definindo o peso da fonte como negrito (bold). */
+.btn-15:hover {
+    color: #fff;
 }
 
-/* Definições de estilo para a div com a classe "historico" */
-.historico {   
-     margin-top: 30px; /* Adicionando espaço acima da div com classe "historico". */
+.btn-15:hover:after {
+    left: 0;
+    width: 100%;
 }
 
-/* Definições de estilo para a tabela */
-table {
-    width: 100%;  /* Definindo a largura da tabela como 100% da largura do contêiner pai. */
-    border-collapse: collapse;  /* Colapsando as bordas das células da tabela. */
-    margin-top: 20px;  /* Adicionando espaço acima da tabela. */
+.btn-15:active {
+    top: 2px;
 }
 
-/* Definições de estilo para os cabeçalhos de coluna e linha (th, td) */
-th, td {
-    border: 1px solid #fff8f8;   /* Adicionando uma borda de 1 pixel com a cor #fff8f8 às células da tabela. */
-    padding: 8px;  /* Adicionando um preenchimento interno de 8 pixels às células da tabela. */
-    text-align: center;  /* Centralizando o texto nas células da tabela. */
+/* Estilos para o botão "Histórico" */
+#historicoBtn {
+    background-color: #35A29F;
 }
 
-/* Definições de estilo para os cabeçalhos de coluna (th) */
-th {
-    background-color: #f2f2f2;  /* Definindo a cor de fundo dos cabeçalhos de coluna como #f2f2f2 (cinza muito claro). */
-}
-
-/* Definições de estilo para as células da tabela (td) */
-td {
-    vertical-align: middle;  /* Centralizando verticalmente o conteúdo nas células da tabela. */
-}
-
-/* Definições de estilo para as linhas pares da tabela */
-tr:nth-child(even) {
-    display: block;   /* Definindo as linhas pares como elementos de bloco para que cada uma ocupe uma linha inteira. */
-    clear: both;   /* Removendo as quebras de linha entre as linhas pares, criando um espaço entre cada item do histórico. */
+/* Estilos para o botão "Calcular Hipotenusa" */
+#calcularBtn {
+    background-color: #35A29F;
 }
