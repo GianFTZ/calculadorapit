@@ -24,7 +24,7 @@ document.addEventListener('DOMContentLoaded', () => {
   historicoBtn.addEventListener('click', () => {  // Dentro da função do evento de clique do botão 'historicoBtn':
 
     // Realiza uma requisição fetch para a rota '/historico' do servidor.
-    fetch('/historico.db')
+    fetch('/historico')
       // Converte a resposta para JSON.
       .then(response => response.json())
       // Após a conversão, processa os dados retornados (histórico de consultas).
