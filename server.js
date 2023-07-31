@@ -5,7 +5,7 @@ const path = require('path');
 
 const app = express();
 const PORT = process.env.PORT || 3000;
-const db = new sqlite3.Database(path.join(__dirname, 'historico'));
+const db = new sqlite3.Database(path.join(__dirname, 'historico.db'));
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
