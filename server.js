@@ -2,22 +2,28 @@ const express = require('express');
 const sqlite3 = require('sqlite3').verbose();
 const path = require('path');
 
+
 const app = express();
 const PORT = process.env.PORT || 3000;
-const db = new sqlite3.Database(path.join(__dirname, 'historico.db'));
+const db = new sqlite3.Database(path.join(__dirname, 'historico'));
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(express.static(__dirname));
+const cors = require('cors');
+app.use(cors({
+  origin: '*' // permitir acesso de qualquer origem
+}))
 
 // Criar tabela 'consultas' se não existir
+ 
 const createTableQuery = `
   CREATE TABLE IF NOT EXISTS consultas (
     id INTEGER PRIMARY KEY AUTOINCREMENT,
-    catetoOposto REAL,
-    catetoAdjacente REAL,
-    hipotenusa REAL,
-    timestamp TEXT
+    catetoOposto float NOT NULL,
+    catetoAdjacente float  NOT NULL,
+    hipotenusa float  NOT NULL,
+    timestamp TEXT NOT NULL
   )
 `;
 db.run(createTableQuery, (err) => {
@@ -31,7 +37,7 @@ db.run(createTableQuery, (err) => {
 // Rota para calcular a hipotenusa e salvar no banco de dados
 app.post('/calcular', (req, res) => {
   const { catetoOposto, catetoAdjacente } = req.body;
-
+  console.log(req.body)
   if (catetoOposto && catetoAdjacente) {
     const hipotenusa = Math.sqrt(Math.pow(catetoOposto, 2) + Math.pow(catetoAdjacente, 2));
     const timestamp = new Date().toISOString();
@@ -51,7 +57,7 @@ app.post('/calcular', (req, res) => {
 });
 
 // Rota para obter o histórico de consultas
-app.get('/historico.db', (req, res) => {
+app.get('/historico', (req, res) => {
   const sql = 'SELECT * FROM consultas ORDER BY timestamp DESC';
   db.all(sql, [], (err, rows) => {
     if (err) {
